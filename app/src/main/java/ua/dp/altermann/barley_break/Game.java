@@ -55,11 +55,6 @@ public class Game {
 
     public void move(View v) {
         int position = elements.indexOf(v);
-        Log.d(LOG_TAG, "Find view: " + position);
-        move(position);
-    }
-
-    public void move(int position) {
         int[] xyCurr = convert(position);
         Log.d(LOG_TAG, "Move position: " + position + ": x=" + xyCurr[0] + ", y=" + xyCurr[1]);
         if (xyCurr[0] == xyEmpty[0]) { // Check at X
