@@ -16,12 +16,12 @@ public class Game {
 
     private Context cnx;
     private Random rnd = new Random();
-    private List<Button> elements;
+    private List<Button> stage;
     private int[] xyEmpty = new int[2];
 
-    public Game(Context cnx, List<Button> elements) {
+    public Game(Context cnx, List<Button> stage) {
         this.cnx = cnx;
-        this.elements = elements;
+        this.stage = stage;
     }
 
     protected int convert(int... xy) {
@@ -45,16 +45,16 @@ public class Game {
         // randomize()
         for (int i = 0; i < 15; i++) {
             int x = rnd.nextInt(fill.size());
-            elements.get(i).setText(fill.get(x));
+            stage.get(i).setText(fill.get(x));
             fill.remove(x);
         }
-        elements.get(15).setText("");
+        stage.get(15).setText("");
         xyEmpty = convert(15);
         Log.d(LOG_TAG, "Empty position: " + Arrays.toString(xyEmpty));
     }
 
     public void move(View v) {
-        int position = elements.indexOf(v);
+        int position = stage.indexOf(v);
         int[] xyCurr = convert(position);
         Log.d(LOG_TAG, "Move position: " + position + ": x=" + xyCurr[0] + ", y=" + xyCurr[1]);
         if (xyCurr[0] == xyEmpty[0]) { // Check at X
@@ -79,8 +79,8 @@ public class Game {
 
     protected void replaceElement(int r1, int r2) {
         Log.d(LOG_TAG, "replaceElement: " + r1 + " -> " + r2);
-        Button a1 = elements.get(r1);
-        Button a2 = elements.get(r2);
+        Button a1 = stage.get(r1);
+        Button a2 = stage.get(r2);
         CharSequence tmp = a1.getText();
         a1.setText(a2.getText());
         a2.setText(tmp);
