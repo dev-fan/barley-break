@@ -21,32 +21,32 @@
                 android:text="1"
                 android:gravity="center_vertical|center_horizontal"
                 android:textSize="20sp"
-                android:textColor="@color/red"
-                android:background="@drawable/splashshape"/>
+                android:textColor="@color/number_color"
+                android:background="@drawable/button"/>
             <TextView
                 android:layout_width="@dimen/splash_field_size"
                 android:layout_height="@dimen/splash_field_size"
                 android:text="2"
                 android:gravity="center_vertical|center_horizontal"
                 android:textSize="20sp"
-                android:textColor="@color/red"
-                android:background="@drawable/splashshape" />
+                android:textColor="@color/number_color"
+                android:background="@drawable/button" />
             <TextView
                 android:layout_width="@dimen/splash_field_size"
                 android:layout_height="@dimen/splash_field_size"
                 android:text="3"
                 android:gravity="center_vertical|center_horizontal"
                 android:textSize="20sp"
-                android:textColor="@color/red"
-                android:background="@drawable/splashshape" />
+                android:textColor="@color/number_color"
+                android:background="@drawable/button" />
             <TextView
                 android:layout_width="@dimen/splash_field_size"
                 android:layout_height="@dimen/splash_field_size"
                 android:text="4"
                 android:gravity="center_vertical|center_horizontal"
                 android:textSize="20sp"
-                android:textColor="@color/red"
-                android:background="@drawable/splashshape" />
+                android:textColor="@color/number_color"
+                android:background="@drawable/button" />
         </TableRow>
         <TableRow
             android:layout_width="match_parent"
@@ -58,32 +58,32 @@
                 android:text="5"
                 android:gravity="center_vertical|center_horizontal"
                 android:textSize="20sp"
-                android:textColor="@color/red"
-                android:background="@drawable/splashshape" />
+                android:textColor="@color/number_color"
+                android:background="@drawable/button" />
             <TextView
                 android:layout_width="@dimen/splash_field_size"
                 android:layout_height="@dimen/splash_field_size"
                 android:text="6"
                 android:gravity="center_vertical|center_horizontal"
                 android:textSize="20sp"
-                android:textColor="@color/red"
-                android:background="@drawable/splashshape" />
+                android:textColor="@color/number_color"
+                android:background="@drawable/button" />
             <TextView
                 android:layout_width="@dimen/splash_field_size"
                 android:layout_height="@dimen/splash_field_size"
                 android:text="7"
                 android:gravity="center_vertical|center_horizontal"
                 android:textSize="20sp"
-                android:textColor="@color/red"
-                android:background="@drawable/splashshape" />
+                android:textColor="@color/number_color"
+                android:background="@drawable/button" />
             <TextView
                 android:layout_width="@dimen/splash_field_size"
                 android:layout_height="@dimen/splash_field_size"
                 android:text="8"
                 android:gravity="center_vertical|center_horizontal"
                 android:textSize="20sp"
-                android:textColor="@color/red"
-                android:background="@drawable/splashshape" />
+                android:textColor="@color/number_color"
+                android:background="@drawable/button" />
         </TableRow>
         <TableRow
             android:layout_width="match_parent"
@@ -95,32 +95,32 @@
                 android:text="9"
                 android:gravity="center_vertical|center_horizontal"
                 android:textSize="20sp"
-                android:textColor="@color/red"
-                android:background="@drawable/splashshape" />
+                android:textColor="@color/number_color"
+                android:background="@drawable/button" />
             <TextView
                 android:layout_width="@dimen/splash_field_size"
                 android:layout_height="@dimen/splash_field_size"
                 android:text="10"
                 android:gravity="center_vertical|center_horizontal"
                 android:textSize="20sp"
-                android:textColor="@color/red"
-                android:background="@drawable/splashshape" />
+                android:textColor="@color/number_color"
+                android:background="@drawable/button" />
             <TextView
                 android:layout_width="@dimen/splash_field_size"
                 android:layout_height="@dimen/splash_field_size"
                 android:text="11"
                 android:gravity="center_vertical|center_horizontal"
                 android:textSize="20sp"
-                android:textColor="@color/red"
-                android:background="@drawable/splashshape" />
+                android:textColor="@color/number_color"
+                android:background="@drawable/button" />
             <TextView
                 android:layout_width="@dimen/splash_field_size"
                 android:layout_height="@dimen/splash_field_size"
                 android:text="12"
                 android:gravity="center_vertical|center_horizontal"
                 android:textSize="20sp"
-                android:textColor="@color/red"
-                android:background="@drawable/splashshape" />
+                android:textColor="@color/number_color"
+                android:background="@drawable/button" />
         </TableRow>
         <TableRow
             android:layout_width="match_parent"
@@ -132,32 +132,32 @@
                 android:text="13"
                 android:gravity="center_vertical|center_horizontal"
                 android:textSize="20sp"
-                android:textColor="@color/red"
-                android:background="@drawable/splashshape" />
+                android:textColor="@color/number_color"
+                android:background="@drawable/button" />
             <TextView
                 android:layout_width="@dimen/splash_field_size"
                 android:layout_height="@dimen/splash_field_size"
                 android:text="14"
                 android:gravity="center_vertical|center_horizontal"
                 android:textSize="20sp"
-                android:textColor="@color/red"
-                android:background="@drawable/splashshape" />
+                android:textColor="@color/number_color"
+                android:background="@drawable/button" />
             <TextView
                 android:layout_width="@dimen/splash_field_size"
                 android:layout_height="@dimen/splash_field_size"
                 android:text="15"
                 android:gravity="center_vertical|center_horizontal"
                 android:textSize="20sp"
-                android:textColor="@color/red"
-                android:background="@drawable/splashshape" />
+                android:textColor="@color/number_color"
+                android:background="@drawable/button" />
             <TextView
                 android:layout_width="@dimen/splash_field_size"
                 android:layout_height="@dimen/splash_field_size"
                 android:text=""
                 android:gravity="center_vertical|center_horizontal"
                 android:textSize="20sp"
-                android:textColor="@color/red"
-                android:background="@drawable/splashshape" />
+                android:textColor="@color/number_color"
+                android:background="@drawable/button" />
         </TableRow>
     </TableLayout>
 
@@ -166,7 +166,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/tvSplashName"
         android:text="@string/app_name"
-        android:textColor="@color/black"
+        android:textColor="@color/number_color"
         android:textSize="@dimen/info_text_size"
         android:gravity="center_horizontal" />
 

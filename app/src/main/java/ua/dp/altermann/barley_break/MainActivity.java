@@ -44,8 +44,9 @@ public class MainActivity extends Activity {
         llField.post(new Runnable() {
             @Override
             public void run() {
+                int fieldPadding = (int) getResources().getDimension(R.dimen.fields_padding);
                 int minSize = Math.min(llField.getMeasuredWidth(), llField.getMeasuredHeight());
-                int btnSize = (int) Math.floor((minSize - 20) / 4);
+                int btnSize = (int) Math.floor((minSize - fieldPadding * 2) / 4);
                 Log.d(LOG_TAG, "LinearLayout: minSize=" + minSize + ", btnSize=" + btnSize
                         + ", width=" + llField.getMeasuredWidth() + ", height=" + llField.getMeasuredHeight());
                 for (Button btn : stage) {
@@ -54,7 +55,7 @@ public class MainActivity extends Activity {
                     btn.setWidth(btnSize);
                     btn.setTextSize(45f);
                 }
-                llField.setPadding(10, 10, 10, 10);
+                llField.setPadding(fieldPadding, fieldPadding, fieldPadding, fieldPadding);
                 int wrapContent = LinearLayout.LayoutParams.WRAP_CONTENT;
                 llField.setLayoutParams(new LinearLayout.LayoutParams(wrapContent, wrapContent));
             }
