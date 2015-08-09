@@ -2,6 +2,7 @@ package ua.dp.altermann.barley_break;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -62,6 +63,18 @@ public class MainActivity extends Activity {
         });
         game = new Game(getBaseContext(), stage);
         game.reset();
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        game.restore(savedInstanceState);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        game.save(outState);
     }
 
     // Handlers

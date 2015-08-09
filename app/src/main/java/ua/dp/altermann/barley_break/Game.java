@@ -1,6 +1,7 @@
 package ua.dp.altermann.barley_break;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +14,7 @@ import java.util.Random;
 public class Game {
 
     public final String LOG_TAG = "bb_game";
+    private final static String SAVE_FIELD = "field";
 
     private Context cnx;
     private Random rnd = new Random();
@@ -84,6 +86,24 @@ public class Game {
         CharSequence tmp = a1.getText();
         a1.setText(a2.getText());
         a2.setText(tmp);
+    }
+
+    public void save(Bundle bundle) {
+        String[] field = new String[16];
+        for (int i = 0; i < stage.size(); i++) {
+            field[i] = (String) stage.get(i).getText();
+        }
+        bundle.putStringArray(SAVE_FIELD, field);
+    }
+
+    public void restore(Bundle bundle) {
+        String[] field = bundle.getStringArray(SAVE_FIELD);
+        for (int i = 0; i < stage.size(); i++) {
+            stage.get(i).setText(field[i]);
+            if (field[i].equals("")) {
+                xyEmpty = convert(i);
+            }
+        }
     }
 
 }
