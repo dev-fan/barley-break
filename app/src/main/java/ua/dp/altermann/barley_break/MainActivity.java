@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
@@ -41,22 +43,27 @@ public class MainActivity extends Activity {
         stage.add((Button) findViewById(R.id.btn15));
         stage.add((Button) findViewById(R.id.btn16));
 
+        final LinearLayout llMain = (LinearLayout)findViewById(R.id.llMain);
         final LinearLayout llField = (LinearLayout)findViewById(R.id.llField);
         llField.post(new Runnable() {
             @Override
             public void run() {
-                int fieldPadding = (int) getResources().getDimension(R.dimen.fields_padding);
-                int minSize = Math.min(llField.getMeasuredWidth(), llField.getMeasuredHeight());
-                int btnSize = (int) Math.floor((minSize - fieldPadding * 2) / 4);
-                Log.d(LOG_TAG, "LinearLayout: minSize=" + minSize + ", btnSize=" + btnSize
-                        + ", width=" + llField.getMeasuredWidth() + ", height=" + llField.getMeasuredHeight());
+                int actMargin = getResources().getDimensionPixelSize(R.dimen.activity_vertical_margin);
+                int minSize = Math.min(llMain.getMeasuredWidth(), llMain.getMeasuredHeight());
+                int btnSize = (int) Math.floor((minSize - (actMargin) * 2) / 4);
+                Log.d(LOG_TAG, "LinearLayout llMain: width=" + llMain.getMeasuredWidth()
+                        + ", height=" + llMain.getMeasuredHeight()
+                        + ",\nactMargin=" + actMargin
+                        + ", minSize=" + minSize + ", btnSize=" + btnSize
+                        + ",\nLinearLayout llField: width=" + llField.getMeasuredWidth()
+                        + ", height=" + llField.getMeasuredHeight());
                 for (Button btn : stage) {
-                    btn.setBackgroundResource(R.drawable.button);
-                    btn.setHeight(btnSize);
-                    btn.setWidth(btnSize);
-                    btn.setTextSize(45f);
+                    ViewGroup.LayoutParams layoutParams = btn.getLayoutParams();
+                    layoutParams.width = btnSize;
+                    layoutParams.height = btnSize;
+                    btn.setLayoutParams(layoutParams);
+                    btn.setTextSize(TypedValue.COMPLEX_UNIT_PX, btnSize / 2);
                 }
-                llField.setPadding(fieldPadding, fieldPadding, fieldPadding, fieldPadding);
                 int wrapContent = LinearLayout.LayoutParams.WRAP_CONTENT;
                 llField.setLayoutParams(new LinearLayout.LayoutParams(wrapContent, wrapContent));
             }
