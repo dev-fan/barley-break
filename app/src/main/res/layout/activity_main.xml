@@ -200,7 +200,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/button_margin">
+        android:layout_marginTop="@dimen/button_margin"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
         <Button
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
@@ -210,5 +212,14 @@
             android:id="@+id/btnReset"
             android:textSize="@dimen/button_text_size">
         </Button>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/button_margin"
+            android:id="@+id/tvWin"
+            android:textColor="@color/red"
+            android:text="Ты победил"
+            android:textSize="@dimen/button_text_size" />
     </LinearLayout>
 </LinearLayout>

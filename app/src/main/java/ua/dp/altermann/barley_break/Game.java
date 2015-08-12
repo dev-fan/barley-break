@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -20,6 +21,7 @@ public class Game {
     private Random rnd = new Random();
     private List<Button> stage;
     private int[] xyEmpty = new int[2];
+    private TextView tvWin;
 
     public Game(Context cnx, List<Button> stage) {
         this.cnx = cnx;
@@ -38,19 +40,18 @@ public class Game {
     }
 
     public void reset() {
-        // fill()
-        List<String> fill = new ArrayList<>(15);
-        for (int i = 1; i <= 15; i++) {
-            fill.add(String.valueOf(i));
-        }
+        tvWin.setText("");
+        List<String> fill = fill();
         Log.d(LOG_TAG, "Fill values: " + fill);
         // randomize()
         for (int i = 0; i < 15; i++) {
             int x = rnd.nextInt(fill.size());
             stage.get(i).setText(fill.get(x));
             fill.remove(x);
+            stage.get(i).setBackgroundResource(R.drawable.button);
         }
         stage.get(15).setText("");
+        stage.get(15).setBackgroundResource(R.color.background_material_light);
         xyEmpty = convert(15);
         Log.d(LOG_TAG, "Empty position: " + Arrays.toString(xyEmpty));
     }
@@ -64,28 +65,57 @@ public class Game {
                 int currY = y;
                 y += (xyEmpty[1] > xyCurr[1]) ? -1 : 1;
                 Log.d(LOG_TAG, "Replace Y: " + currY + "->" + y);
-                replaceElement(convert(xyCurr[0], currY), convert(xyCurr[0], y));
+                replace(convert(xyCurr[0], currY), convert(xyCurr[0], y));
             }
             xyEmpty[1] = xyCurr[1];
+            check();
         } else if (xyCurr[1] == xyEmpty[1]) { // Check at Y
             for (int x = xyEmpty[0]; x != xyCurr[0];) {
                 int currX = x;
                 x += (xyEmpty[0] > xyCurr[0]) ? -1 : 1;
                 Log.d(LOG_TAG, "Replace X: " + currX + "->" + x);
-                replaceElement(convert(currX, xyCurr[1]), convert(x, xyCurr[1]));
+                replace(convert(currX, xyCurr[1]), convert(x, xyCurr[1]));
             }
             xyEmpty[0] = xyCurr[0];
+            check();
         }
         Log.d(LOG_TAG, "Empty position: " + Arrays.toString(xyEmpty));
     }
 
-    protected void replaceElement(int r1, int r2) {
-        Log.d(LOG_TAG, "replaceElement: " + r1 + " -> " + r2);
+    protected List<String> fill() {
+        List<String> fill = new ArrayList<>(15);
+        for (int i = 1; i <= 15; i++) {
+            fill.add(String.valueOf(i));
+        }
+        return fill;
+    }
+
+    protected void replace(int r1, int r2) {
+        Log.d(LOG_TAG, "replace: " + r1 + " -> " + r2);
         Button a1 = stage.get(r1);
         Button a2 = stage.get(r2);
         CharSequence tmp = a1.getText();
         a1.setText(a2.getText());
         a2.setText(tmp);
+        a1.setBackgroundResource(R.drawable.button);
+        a2.setBackgroundResource(R.color.background_material_light);
+    }
+
+    protected boolean check() {
+        int count = 0;
+        if (xyEmpty[0] == xyEmpty[1] && xyEmpty[0] == 3) {
+            List<String> fill = fill();
+            for (int i = 0; i < fill.size(); i++) {
+                if (fill.get(i).equals(stage.get(i).getText())) {
+                    count++;
+                }
+            }
+        }
+        Log.d(LOG_TAG, "check: " + count);
+        if (count == 15) {
+            tvWin.setText(R.string.you_win);
+        }
+        return count == 15;
     }
 
     public void save(Bundle bundle) {
@@ -100,10 +130,19 @@ public class Game {
         String[] field = bundle.getStringArray(SAVE_FIELD);
         for (int i = 0; i < stage.size(); i++) {
             stage.get(i).setText(field[i]);
+            stage.get(i).setBackgroundResource(R.drawable.button);
             if (field[i].equals("")) {
                 xyEmpty = convert(i);
+                stage.get(i).setBackgroundResource(R.color.background_material_light);
             }
         }
+        check();
+    }
+
+    // Getter/Setter
+
+    public void setTvWin(TextView tvWin) {
+        this.tvWin = tvWin;
     }
 
 }

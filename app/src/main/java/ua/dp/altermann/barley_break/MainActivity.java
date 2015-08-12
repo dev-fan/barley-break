@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,6 +70,7 @@ public class MainActivity extends Activity {
             }
         });
         game = new Game(getBaseContext(), stage);
+        game.setTvWin((TextView) findViewById(R.id.tvWin));
         game.reset();
     }
 

@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Пятнашки</string>
     <string name="new_game">Новая игра</string>
+    <string name="you_win">Ты победил</string>
 </resources>

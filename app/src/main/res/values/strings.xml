@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Barley-break</string>
     <string name="new_game">New game</string>
+    <string name="you_win">You Win</string>
 </resources>
