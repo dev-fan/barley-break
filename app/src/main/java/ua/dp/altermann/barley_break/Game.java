@@ -4,6 +4,8 @@ import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -11,6 +13,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+
+import ua.dp.altermann.barley_break.handler.AnimationMove;
 
 public class Game {
 
@@ -94,11 +98,39 @@ public class Game {
         Log.d(LOG_TAG, "replace: " + r1 + " -> " + r2);
         Button a1 = stage.get(r1);
         Button a2 = stage.get(r2);
-        CharSequence tmp = a1.getText();
+        Log.d(LOG_TAG, "a1: " + a1.getText() + " | a2:" + a2.getText());
         a1.setText(a2.getText());
-        a2.setText(tmp);
+        Log.d(LOG_TAG, "a1: " + a1.getText() + " | a2:" + a2.getText());
         a1.setBackgroundResource(R.drawable.button);
-        a2.setBackgroundResource(R.color.background_material_light);
+        if (r2 - r1 > 1) { // num up
+            Log.d(LOG_TAG, "num up");
+            Animation anim1 = AnimationUtils.loadAnimation(cnx, R.anim.up_on);
+            a1.startAnimation(anim1);
+            Animation anim2 = AnimationUtils.loadAnimation(cnx, R.anim.up_off);
+            anim2.setAnimationListener(new AnimationMove(a2));
+            a2.startAnimation(anim2);
+        } else if (r1 - r2 == 1) { // num right
+            Log.d(LOG_TAG, "num right");
+            Animation anim1 = AnimationUtils.loadAnimation(cnx, R.anim.right_on);
+            a1.startAnimation(anim1);
+            Animation anim2 = AnimationUtils.loadAnimation(cnx, R.anim.right_off);
+            anim2.setAnimationListener(new AnimationMove(a2));
+            a2.startAnimation(anim2);
+        } else if (r1 - r2 > 1) { // num down
+            Log.d(LOG_TAG, "num down");
+            Animation anim1 = AnimationUtils.loadAnimation(cnx, R.anim.down_on);
+            a1.startAnimation(anim1);
+            Animation anim2 = AnimationUtils.loadAnimation(cnx, R.anim.down_off);
+            anim2.setAnimationListener(new AnimationMove(a2));
+            a2.startAnimation(anim2);
+        } else if (r2 - r1 == 1) { // num left
+            Log.d(LOG_TAG, "num left");
+            Animation anim1 = AnimationUtils.loadAnimation(cnx, R.anim.left_on);
+            a1.startAnimation(anim1);
+            Animation anim2 = AnimationUtils.loadAnimation(cnx, R.anim.left_off);
+            anim2.setAnimationListener(new AnimationMove(a2));
+            a2.startAnimation(anim2);
+        }
     }
 
     protected boolean check() {
