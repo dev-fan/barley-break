@@ -49,7 +49,7 @@ public class MainActivity extends Activity {
         llField.post(new Runnable() {
             @Override
             public void run() {
-                int actMargin = getResources().getDimensionPixelSize(R.dimen.activity_vertical_margin);
+                int actMargin = getResources().getDimensionPixelSize(R.dimen.activity_margin);
                 int minSize = Math.min(llMain.getMeasuredWidth(), llMain.getMeasuredHeight());
                 int btnSize = (int) Math.floor((minSize - (actMargin) * 2) / 4);
                 Log.d(LOG_TAG, "LinearLayout llMain: width=" + llMain.getMeasuredWidth()
