@@ -219,7 +219,7 @@
             android:layout_marginTop="@dimen/button_margin"
             android:id="@+id/tvWin"
             android:textColor="@color/red"
-            android:text="Ты победил"
+            android:text=""
             android:textSize="@dimen/button_text_size" />
     </LinearLayout>
 </LinearLayout>
