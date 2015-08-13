@@ -11,192 +11,201 @@
     android:gravity="center_horizontal"
     android:id="@+id/llMain">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
+    <RelativeLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/llField">
-        <LinearLayout
-            android:layout_width="match_parent"
+
+        <Button
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal">
-            <Button
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text=""
-                android:textStyle="bold"
-                android:onClick="onMove"
-                android:id="@+id/btn1"
-                android:background="@drawable/button"
-                android:layout_weight="1">
-            </Button>
-            <Button
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text=""
-                android:textStyle="bold"
-                android:onClick="onMove"
-                android:id="@+id/btn2"
-                android:background="@drawable/button"
-                android:layout_weight="1">
-            </Button>
-            <Button
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text=""
-                android:textStyle="bold"
-                android:onClick="onMove"
-                android:id="@+id/btn3"
-                android:background="@drawable/button"
-                android:layout_weight="1">
-            </Button>
-            <Button
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text=""
-                android:textStyle="bold"
-                android:onClick="onMove"
-                android:id="@+id/btn4"
-                android:background="@drawable/button"
-                android:layout_weight="1">
-            </Button>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
+            android:text=""
+            android:id="@+id/btn1"
+            android:textStyle="bold"
+            android:onClick="onMove"
+            android:background="@drawable/button"/>
+
+        <Button
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal">
-            <Button
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text=""
-                android:textStyle="bold"
-                android:onClick="onMove"
-                android:id="@+id/btn5"
-                android:background="@drawable/button"
-                android:layout_weight="1">
-            </Button>
-            <Button
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text=""
-                android:textStyle="bold"
-                android:onClick="onMove"
-                android:id="@+id/btn6"
-                android:background="@drawable/button"
-                android:layout_weight="1">
-            </Button>
-            <Button
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text=""
-                android:textStyle="bold"
-                android:onClick="onMove"
-                android:id="@+id/btn7"
-                android:background="@drawable/button"
-                android:layout_weight="1">
-            </Button>
-            <Button
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text=""
-                android:textStyle="bold"
-                android:onClick="onMove"
-                android:id="@+id/btn8"
-                android:background="@drawable/button"
-                android:layout_weight="1">
-            </Button>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
+            android:text=""
+            android:id="@+id/btn2"
+            android:textStyle="bold"
+            android:onClick="onMove"
+            android:background="@drawable/button"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/btn1"
+            android:layout_toEndOf="@+id/btn1" />
+
+        <Button
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal">
-            <Button
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text=""
-                android:textStyle="bold"
-                android:onClick="onMove"
-                android:id="@+id/btn9"
-                android:background="@drawable/button"
-                android:layout_weight="1">
-            </Button>
-            <Button
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text=""
-                android:textStyle="bold"
-                android:onClick="onMove"
-                android:id="@+id/btn10"
-                android:background="@drawable/button"
-                android:layout_weight="1">
-            </Button>
-            <Button
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text=""
-                android:textStyle="bold"
-                android:onClick="onMove"
-                android:id="@+id/btn11"
-                android:background="@drawable/button"
-                android:layout_weight="1">
-            </Button>
-            <Button
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text=""
-                android:textStyle="bold"
-                android:onClick="onMove"
-                android:id="@+id/btn12"
-                android:background="@drawable/button"
-                android:layout_weight="1">
-            </Button>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
+            android:text=""
+            android:id="@+id/btn3"
+            android:textStyle="bold"
+            android:onClick="onMove"
+            android:background="@drawable/button"
+            android:layout_alignBottom="@+id/btn2"
+            android:layout_toRightOf="@+id/btn2"
+            android:layout_toEndOf="@+id/btn2" />
+
+        <Button
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal">
-            <Button
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text=""
-                android:textStyle="bold"
-                android:onClick="onMove"
-                android:id="@+id/btn13"
-                android:background="@drawable/button"
-                android:layout_weight="1">
-            </Button>
-            <Button
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text=""
-                android:textStyle="bold"
-                android:onClick="onMove"
-                android:id="@+id/btn14"
-                android:background="@drawable/button"
-                android:layout_weight="1">
-            </Button>
-            <Button
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text=""
-                android:textStyle="bold"
-                android:onClick="onMove"
-                android:id="@+id/btn15"
-                android:background="@drawable/button"
-                android:layout_weight="1">
-            </Button>
-            <Button
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text=""
-                android:textStyle="bold"
-                android:onClick="onMove"
-                android:id="@+id/btn16"
-                android:background="@drawable/button"
-                android:layout_weight="1">
-            </Button>
-        </LinearLayout>
-    </LinearLayout>
+            android:text=""
+            android:id="@+id/btn4"
+            android:textStyle="bold"
+            android:onClick="onMove"
+            android:background="@drawable/button"
+            android:layout_alignBottom="@+id/btn3"
+            android:layout_toRightOf="@+id/btn3"
+            android:layout_toEndOf="@+id/btn3" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/btn5"
+            android:textStyle="bold"
+            android:onClick="onMove"
+            android:background="@drawable/button"
+            android:layout_below="@+id/btn1"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/btn6"
+            android:textStyle="bold"
+            android:onClick="onMove"
+            android:background="@drawable/button"
+            android:layout_below="@+id/btn2"
+            android:layout_toRightOf="@+id/btn5"
+            android:layout_toEndOf="@+id/btn5" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/btn7"
+            android:textStyle="bold"
+            android:onClick="onMove"
+            android:background="@drawable/button"
+            android:layout_below="@+id/btn3"
+            android:layout_toRightOf="@+id/btn6"
+            android:layout_toEndOf="@+id/btn6" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/btn8"
+            android:textStyle="bold"
+            android:onClick="onMove"
+            android:background="@drawable/button"
+            android:layout_below="@+id/btn4"
+            android:layout_toRightOf="@+id/btn7"
+            android:layout_toEndOf="@+id/btn7" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/btn9"
+            android:textStyle="bold"
+            android:onClick="onMove"
+            android:background="@drawable/button"
+            android:layout_below="@+id/btn5"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/btn10"
+            android:textStyle="bold"
+            android:onClick="onMove"
+            android:background="@drawable/button"
+            android:layout_below="@+id/btn6"
+            android:layout_toRightOf="@+id/btn9"
+            android:layout_toEndOf="@+id/btn9" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/btn11"
+            android:textStyle="bold"
+            android:onClick="onMove"
+            android:background="@drawable/button"
+            android:layout_below="@+id/btn7"
+            android:layout_toRightOf="@+id/btn10"
+            android:layout_toEndOf="@+id/btn10" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/btn12"
+            android:textStyle="bold"
+            android:onClick="onMove"
+            android:background="@drawable/button"
+            android:layout_below="@+id/btn8"
+            android:layout_toRightOf="@+id/btn11"
+            android:layout_toEndOf="@+id/btn11" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/btn13"
+            android:textStyle="bold"
+            android:onClick="onMove"
+            android:background="@drawable/button"
+            android:layout_below="@+id/btn9"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/btn14"
+            android:textStyle="bold"
+            android:onClick="onMove"
+            android:background="@drawable/button"
+            android:layout_below="@+id/btn10"
+            android:layout_toRightOf="@+id/btn13"
+            android:layout_toEndOf="@+id/btn13" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/btn15"
+            android:textStyle="bold"
+            android:onClick="onMove"
+            android:background="@drawable/button"
+            android:layout_below="@+id/btn11"
+            android:layout_toRightOf="@+id/btn14"
+            android:layout_toEndOf="@+id/btn14" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/btn16"
+            android:textStyle="bold"
+            android:onClick="onMove"
+            android:background="@drawable/button"
+            android:layout_below="@+id/btn12"
+            android:layout_toRightOf="@+id/btn15"
+            android:layout_toEndOf="@+id/btn15" />
+    </RelativeLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

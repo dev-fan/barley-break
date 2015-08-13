@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -44,8 +45,8 @@ public class MainActivity extends Activity {
         stage.add((Button) findViewById(R.id.btn15));
         stage.add((Button) findViewById(R.id.btn16));
 
-        final LinearLayout llMain = (LinearLayout)findViewById(R.id.llMain);
-        final LinearLayout llField = (LinearLayout)findViewById(R.id.llField);
+        final LinearLayout llMain = (LinearLayout) findViewById(R.id.llMain);
+        final RelativeLayout llField = (RelativeLayout) findViewById(R.id.llField);
         llField.post(new Runnable() {
             @Override
             public void run() {
