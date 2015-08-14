@@ -57,7 +57,7 @@ public class Game {
         countStep = 0;
         isFinish = false;
         timeStart = (new Date()).getTime();
-        tvWin.setText(EMPTY_VALUE);
+        printWin(0);
         printBestTime(storage.getBestTime());
         List<String> fill = fill();
         // randomize()
@@ -146,9 +146,7 @@ public class Game {
         if (count == 15) {
             isFinish = true;
             time = (new Date()).getTime() - timeStart;
-            CharSequence timeStr = DateFormat.format(TIME_FORMAT, time);
-            tvWin.setText(String.format(cnx.getResources().getString(R.string.collected), timeStr));
-
+            printWin((int) time);
             int best_time = storage.getBestTime();
             if (time < best_time || best_time == 0) {
                 storage.setBestTime((int) time);
@@ -179,6 +177,17 @@ public class Game {
         }
         timeStart = (new Date((new Date()).getTime() - bundle.getLong(SAVE_TIME))).getTime();
         check();
+    }
+
+    // Update view
+
+    protected void printWin(int time) {
+        if (time > 0) {
+            CharSequence timeStr = DateFormat.format(TIME_FORMAT, time);
+            tvWin.setText(String.format(cnx.getResources().getString(R.string.collected), timeStr));
+        } else {
+            tvWin.setText(EMPTY_VALUE);
+        }
     }
 
     protected void printBestTime(int best_time) {
