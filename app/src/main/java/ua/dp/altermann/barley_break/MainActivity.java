@@ -3,7 +3,6 @@ package ua.dp.altermann.barley_break;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,12 +52,6 @@ public class MainActivity extends Activity {
                 int actMargin = getResources().getDimensionPixelSize(R.dimen.activity_margin);
                 int minSize = Math.min(llMain.getMeasuredWidth(), llMain.getMeasuredHeight());
                 int btnSize = (int) Math.floor((minSize - (actMargin) * 2) / 4);
-                Log.d(LOG_TAG, "LinearLayout llMain: width=" + llMain.getMeasuredWidth()
-                        + ", height=" + llMain.getMeasuredHeight()
-                        + ",\nactMargin=" + actMargin
-                        + ", minSize=" + minSize + ", btnSize=" + btnSize
-                        + ",\nLinearLayout llField: width=" + llField.getMeasuredWidth()
-                        + ", height=" + llField.getMeasuredHeight());
                 for (Button btn : stage) {
                     ViewGroup.LayoutParams layoutParams = btn.getLayoutParams();
                     layoutParams.width = btnSize;
@@ -90,12 +83,10 @@ public class MainActivity extends Activity {
     // Handlers
 
     public void onReset(View v) {
-        Log.d(LOG_TAG, "onReset");
         game.reset();
     }
 
     public void onMove(View v) {
-        Log.d(LOG_TAG, "onMove");
         game.move(v);
     }
 
