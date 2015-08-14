@@ -210,6 +210,15 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/best_time"
+            android:id="@+id/tvBestTime"
+            android:gravity="center_horizontal" />
+
         <Button
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
@@ -218,17 +227,19 @@
             android:onClick="onReset"
             android:id="@+id/btnReset"
             android:textSize="@dimen/button_text_size"
+            android:layout_marginTop="@dimen/button_margin"
             android:paddingLeft="10dp"
             android:paddingRight="10dp">
         </Button>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/button_margin"
             android:id="@+id/tvWin"
             android:textColor="@color/red"
             android:text=""
-            android:textSize="@dimen/button_text_size" />
+            android:textSize="@dimen/button_text_size"
+            android:gravity="center" />
     </LinearLayout>
 </LinearLayout>

@@ -18,15 +18,18 @@ import ua.dp.altermann.barley_break.handler.AnimationMove;
 
 public class Game {
 
-    public final String LOG_TAG = "bb_game";
+    private final static String EMPTY_VALUE = "";
     private final static String SAVE_FIELD = "field";
     private final static String SAVE_TIME = "time";
+    private final static String TIME_FORMAT = "m:ss";
 
     private Context cnx;
+    private Storage storage;
     private Random rnd = new Random();
     private List<Button> stage;
     private int[] xyEmpty = new int[2];
     private TextView tvWin;
+    private TextView tvBestTime;
     private boolean isFinish;
     private int countStep;
     private long timeStart;
@@ -35,6 +38,7 @@ public class Game {
     public Game(Context cnx, List<Button> stage) {
         this.cnx = cnx;
         this.stage = stage;
+        storage = new Storage(cnx.getSharedPreferences(Storage.KEY, cnx.MODE_PRIVATE));
     }
 
     protected int convert(int... xy) {
@@ -53,7 +57,8 @@ public class Game {
         countStep = 0;
         isFinish = false;
         timeStart = (new Date()).getTime();
-        tvWin.setText("");
+        tvWin.setText(EMPTY_VALUE);
+        printBestTime(storage.getBestTime());
         List<String> fill = fill();
         // randomize()
         for (int i = 0; i < 15; i++) {
@@ -62,7 +67,7 @@ public class Game {
             fill.remove(x);
             stage.get(i).setBackgroundResource(R.drawable.button);
         }
-        stage.get(15).setText("");
+        stage.get(15).setText(EMPTY_VALUE);
         stage.get(15).setBackgroundResource(R.color.background_material_light);
         xyEmpty = convert(15);
     }
@@ -141,8 +146,14 @@ public class Game {
         if (count == 15) {
             isFinish = true;
             time = (new Date()).getTime() - timeStart;
-            CharSequence timeStr = DateFormat.format("m:ss", time);
+            CharSequence timeStr = DateFormat.format(TIME_FORMAT, time);
             tvWin.setText(String.format(cnx.getResources().getString(R.string.collected), timeStr));
+
+            int best_time = storage.getBestTime();
+            if (time < best_time || best_time == 0) {
+                storage.setBestTime((int) time);
+                printBestTime((int) time);
+            }
         }
         return count == 15;
     }
@@ -161,7 +172,7 @@ public class Game {
         for (int i = 0; i < stage.size(); i++) {
             stage.get(i).setText(field[i]);
             stage.get(i).setBackgroundResource(R.drawable.button);
-            if (field[i].equals("")) {
+            if (field[i].equals(EMPTY_VALUE)) {
                 xyEmpty = convert(i);
                 stage.get(i).setBackgroundResource(R.color.background_material_light);
             }
@@ -170,10 +181,21 @@ public class Game {
         check();
     }
 
+    protected void printBestTime(int best_time) {
+        if (best_time > 0) {
+            CharSequence timeStr = DateFormat.format(TIME_FORMAT, (new Date(best_time)).getTime());
+            tvBestTime.setText(String.format(cnx.getResources().getString(R.string.best_time), timeStr));
+        }
+    }
+
     // Getter/Setter
 
     public void setTvWin(TextView tvWin) {
         this.tvWin = tvWin;
+    }
+
+    public void setTvBestTime(TextView tvBestTime) {
+        this.tvBestTime = tvBestTime;
     }
 
 }

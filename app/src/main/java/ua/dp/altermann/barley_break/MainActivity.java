@@ -17,8 +17,6 @@ import java.util.List;
 
 public class MainActivity extends Activity {
 
-    public final String LOG_TAG = "bb_act";
-
     Game game;
 
     @Override
@@ -65,6 +63,7 @@ public class MainActivity extends Activity {
         });
         game = new Game(getBaseContext(), stage);
         game.setTvWin((TextView) findViewById(R.id.tvWin));
+        game.setTvBestTime((TextView) findViewById(R.id.tvBestTime));
         game.reset();
     }
 
