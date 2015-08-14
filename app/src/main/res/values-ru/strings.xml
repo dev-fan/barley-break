@@ -2,4 +2,6 @@
     <string name="app_name">Пятнашки</string>
     <string name="new_game">Новая игра</string>
     <string name="you_win">Ты победил</string>
+    <string name="collected">Собрано за %s</string>
+    <string name="best_time">Лучшее время %s</string>
 </resources>

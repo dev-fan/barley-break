@@ -2,4 +2,6 @@
     <string name="app_name">Barley-break</string>
     <string name="new_game">New game</string>
     <string name="you_win">You Win</string>
+    <string name="collected">Collected for %s</string>
+    <string name="best_time">Best time %s</string>
 </resources>
