@@ -1,9 +1,8 @@
 package ua.dp.altermann.barley_break.handler;
 
+import android.view.View;
 import android.view.animation.Animation;
 import android.widget.Button;
-
-import ua.dp.altermann.barley_break.R;
 
 public class AnimationMove implements Animation.AnimationListener {
 
@@ -19,9 +18,7 @@ public class AnimationMove implements Animation.AnimationListener {
 
     @Override
     public void onAnimationEnd(Animation animation) {
-        btn.clearAnimation();
-        btn.setText("");
-        btn.setBackgroundResource(R.color.background_material_light);
+        btn.setVisibility(View.VISIBLE);
     }
 
     @Override
