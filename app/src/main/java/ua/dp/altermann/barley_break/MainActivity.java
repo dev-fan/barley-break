@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.util.TypedValue;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -18,6 +20,7 @@ import java.util.List;
 public class MainActivity extends Activity {
 
     Game game;
+    Storage storage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +64,8 @@ public class MainActivity extends Activity {
                 llField.setLayoutParams(new LinearLayout.LayoutParams(wrapContent, wrapContent));
             }
         });
-        game = new Game(getBaseContext(), stage);
+        storage = new Storage(getSharedPreferences(Storage.KEY, MODE_PRIVATE));
+        game = new Game(getBaseContext(), stage, storage);
         game.setTvWin((TextView) findViewById(R.id.tvWin));
         game.setTvBestTime((TextView) findViewById(R.id.tvBestTime));
         game.reset();
@@ -87,6 +91,35 @@ public class MainActivity extends Activity {
 
     public void onMove(View v) {
         game.move(v);
+    }
+
+    // Menu
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        MenuItem mnSound = menu.findItem(R.id.menu_sound);
+        mnSound.setCheckable(true);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        MenuItem mnSound = menu.findItem(R.id.menu_sound);
+        mnSound.setChecked(storage.isSound());
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.menu_sound:
+                storage.setSound(!storage.isSound());
+                item.setChecked(storage.isSound());
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 }

@@ -1,6 +1,7 @@
 package ua.dp.altermann.barley_break;
 
 import android.content.Context;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.view.View;
@@ -15,6 +16,7 @@ import java.util.List;
 import java.util.Random;
 
 import ua.dp.altermann.barley_break.handler.AnimationMove;
+import ua.dp.altermann.barley_break.handler.SoundCompletion;
 
 public class Game {
 
@@ -35,10 +37,10 @@ public class Game {
     private long timeStart;
     private long time;
 
-    public Game(Context cnx, List<Button> stage) {
+    public Game(Context cnx, List<Button> stage, Storage storage) {
         this.cnx = cnx;
         this.stage = stage;
-        storage = new Storage(cnx.getSharedPreferences(Storage.KEY, cnx.MODE_PRIVATE));
+        this.storage = storage;
     }
 
     protected int convert(int... xy) {
@@ -83,6 +85,7 @@ public class Game {
                     replace(convert(xyCurr[0], currY), convert(xyCurr[0], y));
                 }
                 xyEmpty[1] = xyCurr[1];
+                playSound();
                 check();
             } else if (xyCurr[1] == xyEmpty[1]) { // Check at Y
                 for (int x = xyEmpty[0]; x != xyCurr[0];) {
@@ -91,6 +94,7 @@ public class Game {
                     replace(convert(currX, xyCurr[1]), convert(x, xyCurr[1]));
                 }
                 xyEmpty[0] = xyCurr[0];
+                playSound();
                 check();
             }
         }
@@ -179,7 +183,7 @@ public class Game {
         check();
     }
 
-    // Update view
+    // Update view, sound
 
     protected void printWin(int time) {
         if (time > 0) {
@@ -194,6 +198,15 @@ public class Game {
         if (best_time > 0) {
             CharSequence timeStr = DateFormat.format(TIME_FORMAT, (new Date(best_time)).getTime());
             tvBestTime.setText(String.format(cnx.getResources().getString(R.string.best_time), timeStr));
+        }
+    }
+
+    public void playSound() {
+        if (storage.isSound()) {
+            MediaPlayer mp = MediaPlayer.create(cnx, R.raw.move);
+            mp.setOnCompletionListener(new SoundCompletion());
+            mp.start();
+            mp.setVolume(0.25f, 0.25f);
         }
     }
 

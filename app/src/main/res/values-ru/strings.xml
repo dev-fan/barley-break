@@ -4,4 +4,5 @@
     <string name="you_win">Ты победил</string>
     <string name="collected">Собрано за %s</string>
     <string name="best_time">Лучшее время %s</string>
+    <string name="sound">Звук</string>
 </resources>

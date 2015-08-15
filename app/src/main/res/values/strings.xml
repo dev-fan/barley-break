@@ -4,4 +4,5 @@
     <string name="you_win">You Win</string>
     <string name="collected">Collected for %s</string>
     <string name="best_time">Best time %s</string>
+    <string name="sound">Sound</string>
 </resources>
