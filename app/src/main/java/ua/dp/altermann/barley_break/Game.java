@@ -112,19 +112,19 @@ public class Game {
         a2.setBackgroundResource(R.color.background_material_light);
         if (r2 - r1 > 1) { // num up
             Animation anim1 = AnimationUtils.loadAnimation(cnx, R.anim.up_on);
-            anim1.setAnimationListener(new AnimationMove(a2));
+            anim1.setAnimationListener(new AnimationMove(a1, a2));
             a1.startAnimation(anim1);
         } else if (r1 - r2 == 1) { // num right
             Animation anim1 = AnimationUtils.loadAnimation(cnx, R.anim.right_on);
-            anim1.setAnimationListener(new AnimationMove(a2));
+            anim1.setAnimationListener(new AnimationMove(a1, a2));
             a1.startAnimation(anim1);
         } else if (r1 - r2 > 1) { // num down
             Animation anim1 = AnimationUtils.loadAnimation(cnx, R.anim.down_on);
-            anim1.setAnimationListener(new AnimationMove(a2));
+            anim1.setAnimationListener(new AnimationMove(a1, a2));
             a1.startAnimation(anim1);
         } else if (r2 - r1 == 1) { // num left
             Animation anim1 = AnimationUtils.loadAnimation(cnx, R.anim.left_on);
-            anim1.setAnimationListener(new AnimationMove(a2));
+            anim1.setAnimationListener(new AnimationMove(a1, a2));
             a1.startAnimation(anim1);
         }
     }

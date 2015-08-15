@@ -6,10 +6,12 @@ import android.widget.Button;
 
 public class AnimationMove implements Animation.AnimationListener {
 
-    private Button btn;
+    private Button btn1;
+    private Button btn2;
 
-    public AnimationMove(Button btn) {
-        this.btn = btn;
+    public AnimationMove(Button btn1, Button btn2) {
+        this.btn1 = btn1;
+        this.btn2 = btn2;
     }
 
     @Override
@@ -18,7 +20,8 @@ public class AnimationMove implements Animation.AnimationListener {
 
     @Override
     public void onAnimationEnd(Animation animation) {
-        btn.setVisibility(View.VISIBLE);
+        btn1.setVisibility(View.VISIBLE);
+        btn2.setVisibility(View.VISIBLE);
     }
 
     @Override
