@@ -50,8 +50,7 @@ public class Game {
     protected int[] convert(int r) {
         int x = r % 4;
         int y = (r - x) / 4;
-        int[] coord = {x, y};
-        return coord;
+        return new int[]{x, y};
     }
 
     public void reset() {
@@ -61,17 +60,29 @@ public class Game {
         timeStart = (new Date()).getTime();
         printWin(0);
         printBestTime(storage.getBestTime());
-        List<String> fill = fill();
+        List<Integer> fill = fill();
         // randomize()
+        List<Integer> random = new ArrayList<>(16);
         for (int i = 0; i < 15; i++) {
             int x = rnd.nextInt(fill.size());
-            stage.get(i).setText(fill.get(x));
+            random.add(fill.get(x));
             fill.remove(x);
-            stage.get(i).setBackgroundResource(R.drawable.button);
         }
-        stage.get(15).setText(EMPTY_VALUE);
-        stage.get(15).setBackgroundResource(R.color.background_material_light);
-        xyEmpty = convert(15);
+        random.add(0);
+        checkSolution(random);
+
+        // view()
+        for (int i = 0; i < random.size(); i++) {
+            int val = random.get(i);
+            if (val > 0) {
+                stage.get(i).setText(String.valueOf(val));
+                stage.get(i).setBackgroundResource(R.drawable.button);
+            } else {
+                stage.get(i).setText(EMPTY_VALUE);
+                stage.get(i).setBackgroundResource(R.color.background_material_light);
+                xyEmpty = convert(i);
+            }
+        }
     }
 
     public void move(View v) {
@@ -129,20 +140,44 @@ public class Game {
         }
     }
 
-    protected List<String> fill() {
-        List<String> fill = new ArrayList<>(15);
+    protected List<Integer> fill() {
+        List<Integer> fill = new ArrayList<>(15);
         for (int i = 1; i <= 15; i++) {
-            fill.add(String.valueOf(i));
+            fill.add(i);
         }
         return fill;
+    }
+
+    protected void checkSolution(List<Integer> list) {
+        int inv = 0;
+        for (int i = 0; i < 16; ++i) {
+            if (list.get(i) > 0) {
+                for (int j = 0; j < i; ++j) {
+                    if (list.get(j) > list.get(i)) {
+                        ++inv;
+                    }
+                }
+            }
+        }
+        for (int i = 0; i < 16; ++i) {
+            if (list.get(i) == 0) {
+                inv += 1 + i / 4;
+            }
+        }
+        if (inv % 2 == 1) {
+            Integer tmp = list.get(0);
+            list.set(0, list.get(1));
+            list.set(1, tmp);
+        }
     }
 
     protected boolean check() {
         int count = 0;
         if (xyEmpty[0] == xyEmpty[1] && xyEmpty[0] == 3) {
-            List<String> fill = fill();
+            List<Integer> fill = fill();
             for (int i = 0; i < fill.size(); i++) {
-                if (fill.get(i).equals(stage.get(i).getText())) {
+                String val = String.valueOf(fill.get(i));
+                if (val.equals(stage.get(i).getText())) {
                     count++;
                 }
             }
